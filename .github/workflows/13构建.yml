@@ -286,13 +286,23 @@ jobs:
             echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
             echo "$desc" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
+      - name: Get formatted date
+        id: formatted_date
+        run: |
+          DATE=$(date +'%y%m%d-%H%M')
+          echo "formatted=$DATE" >> $GITHUB_OUTPUT
+
+      - name: Zip AnyKernel3
+        run: |
+          zip -r SuKiSu_${KSUVER}_${{ github.event.inputs.FEIL }}_${{ steps.formatted_date.outputs.formatted }}.zip AnyKernel3
+
       - name: Upload Release
         uses: softprops/action-gh-release@v2
         if: github.event_name == 'workflow_dispatch'
         with:
-          tag_name: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
-          name: onplus13构建 sukisu${{ env.KSUVER }}版本
+          tag_name: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ steps.formatted_date.outputs.formatted }}
+          name: onplus13t构建 sukisu${{ env.KSUVER }}版本
           body: ${{ env.RELEASE_BODY }}
-          files: ./AnyKernel3/**
+          files: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ steps.formatted_date.outputs.formatted }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
