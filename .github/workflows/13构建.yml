@@ -301,7 +301,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         with:
           tag_name: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ steps.formatted_date.outputs.formatted }}
-          name: onplus13t构建 sukisu${{ env.KSUVER }}版本
+          name: onplus13构建 sukisu${{ env.KSUVER }}版本
           body: ${{ env.RELEASE_BODY }}
           files: SuKiSu_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ steps.formatted_date.outputs.formatted }}.zip
         env:
