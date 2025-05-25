@@ -276,6 +276,7 @@ jobs:
             fengchi="未嵌入"
           fi
             susfs="已嵌入"
+            FEIL="oneplus_ace5_pro"
             desc="**SuKiSu 版本**: $KSUVER
                 **内核型号**: $FEIL
                 **KPM**: $kpm
