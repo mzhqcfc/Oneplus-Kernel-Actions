@@ -241,7 +241,7 @@ jobs:
 
       - name: Prepare AnyKernel3
         run: |
-          git clone https://github.com/jiangbeichen233/Anykernel3-For-Oneplus-13.git AnyKernel3 --depth=1
+          git clone https://github.com/zhqcfc/Anykernel3.git AnyKernel3 --depth=1
           rm -rf ./AnyKernel3/.git
           rm -rf ./AnyKernel3/push.sh
           cp kernel_workspace/kernel_platform/dist/Image ./AnyKernel3/
