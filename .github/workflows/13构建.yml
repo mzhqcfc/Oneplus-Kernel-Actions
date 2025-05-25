@@ -24,8 +24,8 @@ on:
         default: '6.6'
       KERNEL_NAME:
         description: "内核名称修改"
-        required: true
-        default: '-By-kuan-jiangbeichen'
+        required: false
+        default: ''
       KERNEL_TIME_MODE:
         description: "内核编译时间模式"
         required: true
@@ -40,7 +40,7 @@ on:
         default: "2024-12-17 23:36:49 UTC"
       FEATURES:
         description: "启用功能(用逗号分隔,如 kpm,lz4kd,fengchi)"
-        required: false
+        required: true
         default: "kpm,lz4kd,fengchi"
 permissions:
   contents: write      
